@@ -64,4 +64,4 @@ kubeadm version
 kubelet --version
 kubectl version
 
-echo -e "kubeadm installation finished !\nSet your Master Node & Worker Node"
+echo -e "################# kubeadm installation finished ! #################\nSet your Master Node & Worker Node"
