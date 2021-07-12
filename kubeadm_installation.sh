@@ -6,6 +6,10 @@ ufw disable
 
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
+### Translate sources
+sed -i 's/kr.archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
+sed -i 's/security.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
+
 sudo apt update -y
 
 sudo apt-get update -y
@@ -64,4 +68,4 @@ kubeadm version
 kubelet --version
 kubectl version
 
-echo -e "################# kubeadm installation finished ! #################\nSet your Master Node & Worker Node"
+echo -e "kubeadm installation finished !\nSet your Master Node & Worker Node"
