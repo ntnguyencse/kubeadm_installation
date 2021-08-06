@@ -1,9 +1,9 @@
-# Every Node
+## Every Node
 ```
 $ source kubeadm_installation.sh
 ```
 
-# Only Master Node
+## Only Master Node
 ```
 sudmkdir -p $HOME/.kubeo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address={__REPLACE_WITH_PRIVATE_IP__MASTER}
 mkdir -p $HOME/.kube
@@ -25,7 +25,7 @@ kubectl get nodes
   $ source k8s_bash-completion.sh
   ```
   
-# Only Worker Node
+## Only Worker Node
 ```
 sudo kubeadm join {__REPLACE_WITH_PRIVATE_IP__MASTER}:6443 --token {TOKEN_NUM} --discovery-token-ca-cert-hash sha256:{HASH_NUM}
 ```
