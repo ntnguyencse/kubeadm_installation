@@ -2,4 +2,7 @@
 kubeadm installation script
 
 Bash Completion at Master Node:
-  source k8s_bash-completion.sh
+
+```
+$ source k8s_bash-completion.sh
+```
