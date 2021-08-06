@@ -1,5 +1,4 @@
-# kubeadm_installation
-kubeadm installation script
+# Every Node
 ```
 $ source kubeadm_installation.sh
 ```
