@@ -1,5 +1,6 @@
 ## Every Node
 ```
+$ chmod +x kubeadm_installation.sh
 $ source kubeadm_installation.sh
 ```
 
@@ -22,6 +23,7 @@ kubectl get nodes
   ```
   - Bash Completion at Master Node
   ```
+  $ chmod +x k8s_bash-completion.sh
   $ source k8s_bash-completion.sh
   ```
   
