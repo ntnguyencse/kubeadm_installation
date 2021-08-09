@@ -29,8 +29,6 @@ sudo apt-get update -y
 
 sudo apt-get install docker-ce -y
 
-sudo docker run hello-world
-
 sudo bash -c 'sudo cat > /etc/docker/daemon.json <<EOF
 {
 "exec-opts": ["native.cgroupdriver=systemd"],
@@ -66,6 +64,5 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 kubeadm version
 kubelet --version
-kubectl version
 
-echo -e "kubeadm installation finished !\nSet your Master Node & Worker Node"
+echo -e "####################### kubeadm installation finished ! #######################\n####################### Set your Master Node & Worker Node #######################"
