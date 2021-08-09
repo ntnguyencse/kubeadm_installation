@@ -15,11 +15,11 @@ $ kubectl get nodes
 ```
   - Check TOKEN_NUM
   ```
-  kubeadm token list
+  $ kubeadm token list
   ```
   - Check HASH_NUM
   ```
-  openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
+  $ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
   ```
   - Bash Completion at Master Node
   ```
@@ -29,5 +29,5 @@ $ kubectl get nodes
   
 ## Only Worker Node
 ```
-sudo kubeadm join {__REPLACE_WITH_PRIVATE_IP__MASTER}:6443 --token {TOKEN_NUM} --discovery-token-ca-cert-hash sha256:{HASH_NUM}
+$ sudo kubeadm join {__REPLACE_WITH_PRIVATE_IP__MASTER}:6443 --token {TOKEN_NUM} --discovery-token-ca-cert-hash sha256:{HASH_NUM}
 ```
