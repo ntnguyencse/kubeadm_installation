@@ -1,5 +1,9 @@
 #! /bin/bash
 
+HOSTNAME=$(hostname)
+
+sed -i "1s/localhost/"${HOSTNAME}"/g" /etc/hosts
+
 swapoff -a
 
 ufw disable
