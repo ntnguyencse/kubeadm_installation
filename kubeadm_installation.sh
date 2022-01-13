@@ -70,6 +70,8 @@ kubeadm version
 kubelet --version
 
 echo -e "####################### kubeadm installation finished ! #######################\n####################### Set your Master Node & Worker Node #######################"
+echo -e " "
+echo -e " "
 echo -e "/////////////////////// MASTER NODE ///////////////////////"
 echo -e "sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address={__REPLACE_WITH_PRIVATE_IP__MASTER}"
 echo -e "mkdir -p $HOME/.kube"
@@ -79,6 +81,7 @@ echo -e "kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/maste
 echo -e "kubeadm token list"
 echo -e "openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'"
 
-
+echo -e " "
+echo -e " "
 echo -e "/////////////////////// WORKER NODE ///////////////////////"
 echo -e "sudo kubeadm join {__REPLACE_WITH_PRIVATE_IP__MASTER}:6443 --token {TOKEN_NUM} --discovery-token-ca-cert-hash sha256:{HASH_NUM}"
