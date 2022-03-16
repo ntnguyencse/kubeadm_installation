@@ -5,7 +5,18 @@ HOSTNAME=$(hostname)
 sed -i "1s/localhost/"${HOSTNAME}"/g" /etc/hosts
 
 swapoff -a
-
+# Change this command disable firewall to open port 
+###
+# Control Plane
+#TCP	Inbound	6443	    Kubernetes API server	All
+#TCP	Inbound	2379-2380	etcd server client API	kube-apiserver, etcd
+#TCP	Inbound	10250	    Kubelet API	Self, Control plane
+#TCP	Inbound	10259	    kube-scheduler	Self
+#TCP	Inbound	10257	    kube-controller-manager	Self
+###
+# Worker Nodes
+#TCP	Inbound	10250	    Kubelet API	Self, Control plane
+#TCP	Inbound	30000-32767	NodePort Services†	All
 ufw disable
 
 echo 1 > /proc/sys/net/ipv4/ip_forward
