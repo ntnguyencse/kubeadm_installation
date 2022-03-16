@@ -32,7 +32,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get update -y
 
 sudo apt-get install docker-ce -y
-
+# Config docker driver and kubernetes can connect to each others
 sudo bash -c 'sudo cat > /etc/docker/daemon.json <<EOF
 {
 "exec-opts": ["native.cgroupdriver=systemd"],
@@ -73,10 +73,13 @@ echo -e "####################### kubeadm installation finished ! ###############
 echo -e " "
 echo -e " "
 echo -e "/////////////////////// MASTER NODE ///////////////////////"
+# CIDR of Flannel model: 10.244.0.0/16
 echo -e "sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address={__REPLACE_WITH_PRIVATE_IP__MASTER}"
 echo -e "mkdir -p $HOME/.kube"
 echo -e "sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config"
 echo -e "sudo chown $(id -u):$(id -g) $HOME/.kube/config"
+# Using networking model Flannel 
+# https://github.com/flannel-io/flannel/tree/master/Documentation
 echo -e "kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml"
 echo -e "kubeadm token list"
 echo -e "openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'"
