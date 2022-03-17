@@ -31,3 +31,22 @@ $ kubectl get nodes
 ```
 $ sudo kubeadm join {__REPLACE_WITH_PRIVATE_IP__MASTER}:6443 --token {TOKEN_NUM} --discovery-token-ca-cert-hash sha256:{HASH_NUM}
 ```
+# Scrip notes:
+## Install master node: 
+[Script install Master node](script/master.sh)
+
+## Install worker node
+
+[Script install worker node](script/worker.sh)
+
+## Install metric server
+
+[File configuration metric server](script/components.yaml)
+
+Install metric server command: 
+```
+kubectl apply -f components.yaml
+```
+
+## Destroy and clean up
+Run [Reset script](script/reset.sh) on master and all of worker node to destroy and clean up the Kubernetes cluster.
