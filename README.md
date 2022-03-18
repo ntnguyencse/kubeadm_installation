@@ -40,6 +40,18 @@ Install Docker Engine based on operating system
 Install all kubernetes  components
 ### Step 3:
 Add docker daemon.json to connect kubectl with docker engine
+```
+sudo bash -c 'sudo cat > /etc/docker/daemon.json <<EOF
+{
+"exec-opts": ["native.cgroupdriver=systemd"],
+"log-driver": "json-file",
+"log-opts": {
+"max-size": "100m"
+},
+"storage-driver": "overlay2"
+}
+EOF'
+```
 ## Install worker node
 
 [Script install worker node](script/worker.sh)
@@ -48,6 +60,21 @@ Add docker daemon.json to connect kubectl with docker engine
 Install Docker Engine based on operating system
 ### Step 2: Install kubectl, kubeproxy,..
 Install all kubernetes  components
+### Step 3:
+Add docker daemon.json to connect kubectl with docker engine
+
+```
+sudo bash -c 'sudo cat > /etc/docker/daemon.json <<EOF
+{
+"exec-opts": ["native.cgroupdriver=systemd"],
+"log-driver": "json-file",
+"log-opts": {
+"max-size": "100m"
+},
+"storage-driver": "overlay2"
+}
+EOF'
+```
 ## Install metric server
 
 [File configuration metric server](script/components.yaml)
