@@ -34,11 +34,20 @@ $ sudo kubeadm join {__REPLACE_WITH_PRIVATE_IP__MASTER}:6443 --token {TOKEN_NUM}
 # Scrip notes:
 ## Install master node: 
 [Script install Master node](script/master.sh)
-
+### Step 1:
+Install Docker Engine based on operating system
+### Step 2: Install kubectl, kubeproxy,..
+Install all kubernetes  components
+### Step 3:
+Add docker daemon.json to connect kubectl with docker engine
 ## Install worker node
 
 [Script install worker node](script/worker.sh)
 
+### Step 1:
+Install Docker Engine based on operating system
+### Step 2: Install kubectl, kubeproxy,..
+Install all kubernetes  components
 ## Install metric server
 
 [File configuration metric server](script/components.yaml)
