@@ -356,14 +356,20 @@ logout
 ```
 
 ## Start name node and other service
+First create folder following hdfs-site.xml: */home/hadoopuser/hadoop/hadoop_data/hdfs/namenode*
 Goto $HADOOP_HOME/bin and run:
 ```
+mkdir /home/hadoopuser/hadoop/hadoop_data/hdfs/namenode -p
+mkdir /home/hadoopuser/hadoop/hadoop_data/hdfs/datanode
 start-all.sh
 ```
 ## Start data node on slave:
+First create folder following hdfs-site.xml: */home/hadoopuser/hadoop/hadoop_data/hdfs/namenode*
 Go to $HADOOP_HOME and run below comamnd:
 *etc/hadoop is a folder contains the configuration of hadoop*
 ```
+mkdir /home/hadoopuser/hadoop/hadoop_data/hdfs/namenode -p
+mkdir /home/hadoopuser/hadoop/hadoop_data/hdfs/datanode
 cd $HADOOP_HOME
 bin/hdfs --config etc/hadoop --daemon start datanode
 ```
