@@ -1,5 +1,5 @@
 #! /bin/bash
-
+ rm /etc/apt/sources.list.d/kubernetes.list
 ##Install Docker
 sudo apt-get update -y
 
